@@ -225,16 +225,16 @@ function ContactModal({
                   <option value="">Select a package</option>
                   <optgroup label="Web Development">
                     <option value="Web — Starter (BND 499)">
-                      Starter (BND 499)
+                      Starter — Landing Page (BND 499)
                     </option>
                     <option value="Web — Business (BND 999)">
-                      Business (BND 999)
+                      Business — Multi-Page (BND 999)
                     </option>
                     <option value="Web — Premium (BND 1,999)">
-                      Premium (BND 1,999)
+                      Premium — Full App (BND 1,999)
                     </option>
                     <option value="Web — Enterprise (Custom)">
-                      Enterprise (Custom)
+                      Enterprise — Custom (Contact Us)
                     </option>
                   </optgroup>
                   <optgroup label="TikTok Promo Videos">
@@ -906,11 +906,11 @@ export function LandingPage() {
               },
               {
                 title: "Pool House Booking",
-                type: "Booking System",
-                desc: "Online booking system for pool and snooker tables. Real-time availability, member pricing, time slot management, and instant booking confirmation.",
-                tags: ["Booking", "SaaS", "Real-Time"],
+                type: "Booking System + Tournaments",
+                desc: "Full-featured pool house management system with real-time table booking, membership tiers, tournament brackets with leaderboards, member profiles with achievements, admin dashboard, and email auth. 14,500+ lines of code.",
+                tags: ["Booking", "SaaS", "Real-Time", "Tournaments"],
                 url: "https://preview-maha-booking-8a4aa877.viktor.space",
-                image: null,
+                image: "/pkg-premium.webp",
               },
               {
                 title: "UVC SteriBox",
@@ -1019,13 +1019,16 @@ export function LandingPage() {
                 {
                   name: "Starter",
                   price: "499",
-                  desc: "Perfect for personal projects and simple online presence.",
+                  desc: "Professional online presence to showcase your business.",
                   turnaround: "3–5 days",
+                  image: "/pkg-starter.webp",
                   features: [
-                    "Single-page website",
-                    "Mobile responsive",
+                    "Beautiful landing page",
+                    "Mobile responsive design",
+                    "Menu / services showcase",
+                    "Photo gallery",
+                    "Contact form & WhatsApp",
                     "Basic SEO setup",
-                    "Contact form integration",
                     "1 round of revisions",
                     "14-day post-launch support",
                   ],
@@ -1034,14 +1037,17 @@ export function LandingPage() {
                 {
                   name: "Business",
                   price: "999",
-                  desc: "Ideal for small businesses and professionals.",
+                  desc: "Multi-page site with forms, gallery, and content management.",
                   turnaround: "7–14 days",
+                  image: "/pkg-business.webp",
                   features: [
                     "Up to 5 pages",
-                    "Mobile responsive",
+                    "Admin panel (manage content)",
+                    "Events & promotions",
+                    "Newsletter signup",
+                    "Testimonials section",
                     "SEO optimization",
-                    "Contact forms",
-                    "Google Analytics setup",
+                    "Google Analytics",
                     "3 rounds of revisions",
                     "30-day post-launch support",
                   ],
@@ -1050,14 +1056,18 @@ export function LandingPage() {
                 {
                   name: "Premium",
                   price: "1,999",
-                  desc: "For businesses that need e-commerce or custom features.",
+                  desc: "Full-featured app with booking, memberships, and real-time data.",
                   turnaround: "14–21 days",
+                  image: "/pkg-premium.webp",
                   features: [
                     "Up to 10 pages",
-                    "E-commerce / custom features",
-                    "Payment integration",
-                    "Advanced SEO",
-                    "Performance optimization",
+                    "User signup & login system",
+                    "Real-time booking engine",
+                    "Membership system",
+                    "Tournament / leaderboard",
+                    "Member profiles & stats",
+                    "Full admin dashboard",
+                    "Push notifications",
                     "Unlimited revisions",
                     "60-day post-launch support",
                   ],
@@ -1066,13 +1076,16 @@ export function LandingPage() {
                 {
                   name: "Enterprise",
                   price: "Custom",
-                  desc: "Complex web apps and large-scale projects.",
+                  desc: "Complex web apps, SaaS, and large-scale custom projects.",
                   turnaround: "Discussed per project",
+                  image: "/pkg-enterprise.webp",
                   features: [
                     "Custom web application",
                     "Database & user auth",
                     "API integrations",
                     "Admin dashboard",
+                    "Payment gateway",
+                    "Multi-language support",
                     "Full-stack development",
                     "Unlimited revisions",
                     "90-day post-launch support",
@@ -1082,61 +1095,71 @@ export function LandingPage() {
               ].map((plan) => (
                 <div
                   key={plan.name}
-                  className={`relative rounded-2xl p-6 md:p-7 transition-all duration-300 hover:-translate-y-1 ${
+                  className={`relative rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 ${
                     plan.popular
                       ? "bg-gradient-to-b from-amber-500/10 to-background border-2 border-amber-500/30 shadow-xl shadow-amber-500/5"
                       : "bg-gradient-to-b from-background to-background border border-border/60 hover:border-amber-500/20 hover:shadow-lg"
                   }`}
                 >
                   {plan.popular && (
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-gradient-to-r from-amber-400 to-yellow-500 text-white text-[11px] font-bold tracking-wide uppercase">
+                    <div className="absolute top-3 right-3 z-10 px-3 py-0.5 rounded-full bg-gradient-to-r from-amber-400 to-yellow-500 text-white text-[11px] font-bold tracking-wide uppercase">
                       Most Popular
                     </div>
                   )}
-                  <div className="mb-5">
-                    <h3 className="font-bold text-lg mb-1">{plan.name}</h3>
-                    <p className="text-muted-foreground text-xs leading-relaxed mb-4">
-                      {plan.desc}
-                    </p>
-                    <div className="flex items-baseline gap-1">
-                      {plan.price !== "Custom" && (
-                        <span className="text-sm text-muted-foreground">
-                          BND
-                        </span>
-                      )}
-                      <span className="text-3xl md:text-4xl font-black tracking-tight">
-                        {plan.price}
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-1.5 mt-2 text-xs text-muted-foreground">
-                      <Clock className="size-3" />
-                      {plan.turnaround}
-                    </div>
+                  <div className="relative h-36 overflow-hidden">
+                    <img
+                      src={plan.image}
+                      alt={plan.name}
+                      className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
                   </div>
-                  <div className="space-y-2.5 mb-6">
-                    {plan.features.map((f) => (
-                      <div key={f} className="flex items-start gap-2.5">
-                        <Check className="size-4 text-amber-400 mt-0.5 shrink-0" />
-                        <span className="text-sm text-muted-foreground">
-                          {f}
+                  <div className="p-6 md:p-7 pt-3">
+                    <div className="mb-5">
+                      <h3 className="font-bold text-lg mb-1">{plan.name}</h3>
+                      <p className="text-muted-foreground text-xs leading-relaxed mb-4">
+                        {plan.desc}
+                      </p>
+                      <div className="flex items-baseline gap-1">
+                        {plan.price !== "Custom" && (
+                          <span className="text-sm text-muted-foreground">
+                            BND
+                          </span>
+                        )}
+                        <span className="text-3xl md:text-4xl font-black tracking-tight">
+                          {plan.price}
                         </span>
                       </div>
-                    ))}
+                      <div className="flex items-center gap-1.5 mt-2 text-xs text-muted-foreground">
+                        <Clock className="size-3" />
+                        {plan.turnaround}
+                      </div>
+                    </div>
+                    <div className="space-y-2.5 mb-6">
+                      {plan.features.map((f) => (
+                        <div key={f} className="flex items-start gap-2.5">
+                          <Check className="size-4 text-amber-400 mt-0.5 shrink-0" />
+                          <span className="text-sm text-muted-foreground">
+                            {f}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                    <CTAButton
+                      variant={plan.popular ? "primary" : "outline"}
+                      className="w-full justify-center rounded-xl"
+                      onClick={() =>
+                        openContact(
+                          plan.price === "Custom"
+                            ? "Web — Enterprise (Custom)"
+                            : `Web — ${plan.name} (BND ${plan.price})`
+                        )
+                      }
+                    >
+                      {plan.price === "Custom" ? "Contact Us" : "Get Started"}
+                      <ArrowRight className="size-4" />
+                    </CTAButton>
                   </div>
-                  <CTAButton
-                    variant={plan.popular ? "primary" : "outline"}
-                    className="w-full justify-center rounded-xl"
-                    onClick={() =>
-                      openContact(
-                        plan.price === "Custom"
-                          ? "Web — Enterprise (Custom)"
-                          : `Web — ${plan.name} (BND ${plan.price})`
-                      )
-                    }
-                  >
-                    {plan.price === "Custom" ? "Contact Us" : "Get Started"}
-                    <ArrowRight className="size-4" />
-                  </CTAButton>
                 </div>
               ))}
             </div>

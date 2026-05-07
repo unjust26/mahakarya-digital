@@ -4,9 +4,9 @@ import { internal } from "./_generated/api";
 
 declare const process: { env: Record<string, string | undefined> };
 
-const VIKTOR_API_URL = process.env.APP_API_URL!;
-const PROJECT_NAME = process.env.APP_PROJECT_NAME!;
-const PROJECT_SECRET = process.env.APP_PROJECT_SECRET!;
+const VIKTOR_API_URL = process.env.VIKTOR_SPACES_API_URL!;
+const PROJECT_NAME = process.env.VIKTOR_SPACES_PROJECT_NAME!;
+const PROJECT_SECRET = process.env.VIKTOR_SPACES_PROJECT_SECRET!;
 
 const SYSTEM_PROMPT = `You are the AI assistant for MahaKarya Digital, an AI-powered web development and video production agency based in Brunei Darussalam.
 
